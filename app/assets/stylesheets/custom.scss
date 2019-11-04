@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$gray-medium-light: #eaeaea;
+
 // universal
 
 body {
@@ -34,7 +36,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: $gray-light;
 }
 
 p {
@@ -64,28 +66,29 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
-}
+  border-top: 1px solid $gray-medium-light;
+  color: $gray-light;
 
-footer a {
-  color: #555;
-
-  &:hover {
-    color: #222;
+  a {
+    color: $gray;
+  
+    &:hover {
+      color: $gray-darker;
+    }
   }
-}
-
-footer small {
-  float: left;
-}
-
-footer ul {
-  float: right;
-  list-style: none;
-
-  li {
+  
+  small {
     float: left;
-    margin-left: 15px;
+  }
+  
+  ul {
+    float: right;
+    list-style: none;
+  
+    li {
+      float: left;
+      margin-left: 15px;
+    }
   }
 }
+
