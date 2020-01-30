@@ -77,14 +77,15 @@ class User < ApplicationRecord
   end
 
   def feed
-    Micropost.where("user_id IN (?) OR user_id = ?", following_ids, id);
+    following_ids = "Select followed_id FROM relationships WHERE follower_id = :user_id"
+    Micropost.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id);
   end
 
   # follow a user
   def follow(other_user)
     following << other_user
   end
-
+  
   # unfollow a user
   def unfollow(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
